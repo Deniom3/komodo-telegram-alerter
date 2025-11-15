@@ -27,7 +27,7 @@ Create a new Stack with the following `compose.yaml` file:
 services:
   komodo-telegram-alerter:
     container_name: komodo-telegram-alerter
-    image: sashabusinaro/komodo-telegram-alerter:latest
+    image: deniom3/komodo-telegram-alerter:latest
     restart: unless-stopped
     ports:
       - '3000:3000'
@@ -95,3 +95,19 @@ Or, leverage Komodo's interpolation:
 2. Send a message to the chat
 3. Visit: `https://api.telegram.org/bot<YOUR_BOT_TOKEN>/getUpdates`
 4. Look for the `chat.id` field in the response
+
+### Message Threads in Supergroups
+
+To send notifications to specific threads in Telegram supergroups:
+
+1. Get the thread ID by sending a message to the thread
+2. Visit: `https://api.telegram.org/bot<YOUR_BOT_TOKEN>/getUpdates`
+3. Look for the `message_thread_id` field in the response
+
+Add the thread ID to your alert URL:
+
+`http://<komodo-telegram-alerter-ip>:3000/alert?token=<TELEGRAM_TOKEN>&chat_id=<TELEGRAM_CHAT_ID>&message_thread_id=<THREAD_ID>`
+
+Or using Komodo variables:
+
+`http://<komodo-telegram-alerter-ip>:3000/alert?token=[[TELEGRAM_TOKEN]]&chat_id=[[TELEGRAM_CHAT_ID]]&message_thread_id=[[THREAD_ID]]`

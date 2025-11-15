@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 3000;
 app.use(bodyParser.json());
 
 app.post('/alert', async (req, res) => {
-  const { token, chat_id } = req.query;
+  const { token, chat_id, message_thread_id } = req.query;
   if (!token || !chat_id) {
     console.error('[ERROR] Missing token or chat_id');
     return res.status(400).json({ error: 'Missing token or chat_id' });
@@ -49,7 +49,8 @@ app.post('/alert', async (req, res) => {
       body: JSON.stringify({
         chat_id,
         text: message,
-        parse_mode: 'Markdown'
+        parse_mode: 'Markdown',
+        ...(message_thread_id && { message_thread_id })
       })
     });
     const data = await response.json();
