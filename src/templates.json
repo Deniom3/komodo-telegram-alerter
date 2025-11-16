@@ -1,0 +1,11 @@
+{
+  "StackAutoUpdated": {
+    "OK": "На сервере {servername} обновлен образ {images} в стеке {name}",
+    "INFO": "ℹ️ На сервере {servername} выполняется обновление образа {images} в стеке {name}",
+    "ERROR": "Ошибка обновления образа {images} на сервере {servername}"
+  },
+  "ServerCpu": {
+    "WARNING": "⚠️ ВНИМАНИЕ: Высокая загрузка CPU на сервере {name} ({percentage}%)",
+    "OK": "✅ Нормальная загрузка CPU на сервере {name} ({percentage}%)"
+  }
+}

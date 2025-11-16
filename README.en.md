@@ -1,10 +1,4 @@
-[![Latest Release][version-image]][version-url]
-[![Docker Pulls][dockerhub-image]][dockerhub-url]
-[![Build Status][gh-actions-image]][gh-actions-url]
-
 # Komodo Telegram Alerter
-
-[Русская версия](README.ru.md) | [English version](README.en.md)
 
 A lightweight Telegram notification service for [Komodo](https://komo.do) monitoring system.
 
@@ -87,12 +81,3 @@ For thread notifications:
 1. Send message to thread
 2. Get `message_thread_id` from getUpdates response
 3. Add to URL: `&message_thread_id=<THREAD_ID>`
-
-[version-image]: https://img.shields.io/github/v/release/Deniom3/komodo-telegram-alerter?style=for-the-badge
-[version-url]: https://github.com/Deniom3/komodo-telegram-alerter/releases
-
-[gh-actions-image]: https://img.shields.io/github/actions/workflow/status/Deniom3/komodo-telegram-alerter/docker-publish.yml?style=for-the-badge
-[gh-actions-url]: https://github.com/Deniom3/komodo-telegram-alerter/actions
-
-[dockerhub-image]: https://img.shields.io/docker/pulls/deniom3/komodo-telegram-alerter?label=DockerHub%20Pulls&style=for-the-badge
-[dockerhub-url]: https://hub.docker.com/r/deniom3/komodo-telegram-alerter

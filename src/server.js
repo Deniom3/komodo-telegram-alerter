@@ -1,6 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import fetch from 'node-fetch';
+import { getMessage } from './message-templates.js';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -37,10 +38,16 @@ app.post('/alert', async (req, res) => {
     'OK': '✅'
   }[level.toUpperCase()] || 'ℹ️';
 
-  const message = `${levelEmoji} ${level} - ${type}\n` +
-                  `*Name*: ${name} (${alertTargetType})\n` +
-                  `*Resolved*: ${resolved}\n` +
-                  `*Data*: ${JSON.stringify(alertInfoData, null, 2)}`;
+  let message = getMessage(type, level, alertInfoData);
+  
+  if (!message) {
+    // Fallback to old format if no template found
+    message = `${levelEmoji} ${level} - ${type}\n` +
+              `*Name*: ${name} (${alertTargetType})\n` +
+              `*Resolved*: ${resolved}\n` +
+              `*Data*: ${JSON.stringify(alertInfoData, null, 2)}`;
+    console.log(`[INFO] Using fallback message format for type: ${type}`);
+  }
 
   try {
     const response = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
