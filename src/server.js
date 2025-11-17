@@ -162,8 +162,7 @@ app.listen(PORT, () => {
     message: 'Telegram notifier started',
     port: PORT,
     logLevel: LOG_LEVEL,
-    logRequests: MESSAGE_LOG,
-    logResponses: MESSAGE_LOG
+    logMessages: MESSAGE_LOG
   };
   console.log(JSON.stringify(logData));
 });
