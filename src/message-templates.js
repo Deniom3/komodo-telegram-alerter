@@ -26,6 +26,10 @@ function formatTemplate(template, data) {
       missingFields.push(key);
       return match;
     }
+    // Округляем числовые значения до 2 знаков после запятой
+    if (typeof data[key] === 'number') {
+      return parseFloat(data[key].toFixed(2));
+    }
     return data[key];
   });
   
