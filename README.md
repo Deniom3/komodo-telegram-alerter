@@ -81,12 +81,41 @@ Or use Komodo variables:
 2. Send test message
 3. Visit: `https://api.telegram.org/bot<YOUR_TOKEN>/getUpdates`
 4. Find `chat.id` in response
-
 ### Message Threads (Supergroups)
 For thread notifications:
 1. Send message to thread
 2. Get `message_thread_id` from getUpdates response
 3. Add to URL: `&message_thread_id=<THREAD_ID>`
+
+## Logging Configuration
+
+The service supports detailed JSON logging. Configure using environment variables:
+
+- `LOG_LEVEL` - log verbosity (debug, info, warn, error). Default: info
+- `MESSAGE_LOG` - enable request/response logging (true/false). Default: false
+
+Example log:
+```json
+{
+  "timestamp": "2025-11-17T11:13:34.548Z",
+  "level": "info",
+  "message": "Incoming request",
+  "method": "POST",
+  "url": "/alert",
+  "headers": {
+    "host": "localhost:3000",
+    "content-type": "application/json"
+  }
+}
+```
+
+To enable message logging:
+```yaml
+environment:
+  - MESSAGE_LOG=true
+  - LOG_LEVEL=debug
+```
+
 
 [version-image]: https://img.shields.io/github/v/release/Deniom3/komodo-telegram-alerter?style=for-the-badge
 [version-url]: https://github.com/Deniom3/komodo-telegram-alerter/releases

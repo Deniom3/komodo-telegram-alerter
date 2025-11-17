@@ -81,3 +81,42 @@ services:
 1. Отправьте сообщение в тред
 2. Получите `message_thread_id` из ответа getUpdates
 3. Добавьте в URL: `&message_thread_id=<ID_ТРЕДА>`
+
+## Настройка логирования
+
+Сервис поддерживает детальное логирование в формате JSON. Для настройки используйте переменные окружения:
+
+- `LOG_LEVEL` - уровень детализации логов (debug, info, warn, error). По умолчанию: info
+- `MESSAGE_LOG` - логировать входящие/исходящие сообщения (true/false). По умолчанию: false
+
+Пример лога:
+```json
+{
+  "timestamp": "2025-11-17T11:13:34.548Z",
+  "level": "info",
+  "message": "Incoming request",
+  "method": "POST",
+  "url": "/alert",
+  "headers": {
+    "host": "localhost:3000",
+    "content-type": "application/json"
+  },
+  "body": {
+    "level": "OK",
+    "data": {
+      "type": "StackAutoUpdated",
+      "data": {
+        "name": "komodo",
+        "server_name": "docker-1"
+      }
+    }
+  }
+}
+```
+
+Для включения логирования сообщений:
+```yaml
+environment:
+  - MESSAGE_LOG=true
+  - LOG_LEVEL=debug
+```
