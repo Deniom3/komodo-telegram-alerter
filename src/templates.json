@@ -18,13 +18,13 @@
     "OK": "🟢 Сервер {name} снова доступен"
   },
   "ServerDisk": {
-    "WARNING": "⚠️ Высокое заполнение диска на сервере {name} занято {usedgb}GB из {totalgb}GB",
-    "OK": "🟢 Нормальный уровень заполнения диска на сервере {name} занято {usedgb}GB из {totalgb}GB",
-    "CRITICAL": "🔴 Критически мало места на сервере {name} занято {usedgb}GB из {totalgb}GB"
+    "WARNING": "⚠️ Высокое заполнение диска на сервере {name} занято {used_gb}GB из {total_gb}GB",
+    "OK": "🟢 Нормальный уровень заполнения диска на сервере {name} занято {used_gb}GB из {total_gb}GB",
+    "CRITICAL": "🔴 Критически мало места на сервере {name} занято {used_gb}GB из {total_gb}GB"
   },
   "ServerMem": {
-    "WARNING": "⚠️ На сервере {name} большщая нагрузка RAM использовано {usedgb}GB из {totalgb}GB",
-    "CRITICAL": "🔴 Критическая нагрузка RAM на сервере {name} использовано {usedgb}GB из {totalgb}GB",
+    "WARNING": "⚠️ На сервере {name} большщая нагрузка RAM использовано {used_gb}GB из {total_gb}GB",
+    "CRITICAL": "🔴 Критическая нагрузка RAM на сервере {name} использовано {used_gb}GB из {total_gb}GB",
     "OK": "🟢 Нормальная нагрузка RAM на сервере {name}"
   },
   "Custom": {
