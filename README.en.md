@@ -51,7 +51,24 @@ To customize notification messages:
 ```
 2. Mount the directory as shown in compose example
 
-Supported placeholders: all fields from alert data object.
+### Supported Placeholders
+
+All fields from alert data object, including nested properties:
+
+- Direct fields: `{name}`, `{level}`, `{type}`
+- Nested fields with dot notation: `{data.name}`, `{data.server_name}`
+- Error fields: `{error}` (automatically checks `data.err.error`)
+- Array elements by index: `{images.0}`, `{trace.1}`
+
+Example template:
+```json
+{
+  "ServerUnreachable": {
+    "CRITICAL": "🔴 Server {name} unreachable: {error}",
+    "OK": "🟢 Server {name} back online"
+  }
+}
+```
 
 ### Configure Komodo
 

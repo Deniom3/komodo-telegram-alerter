@@ -22,15 +22,21 @@ try {
 function formatTemplate(template, data) {
   const missingFields = [];
   const result = template.replace(/\{(\w+)\}/g, (match, key) => {
-    if (data[key] === undefined) {
+    // Проверяем сначала прямое совпадение, затем ищем вложенные свойства
+    let value = data[key];
+    if (value === undefined && data.err && data.err[key] !== undefined) {
+      value = data.err[key];
+    }
+    
+    if (value === undefined) {
       missingFields.push(key);
       return match;
     }
     // Округляем числовые значения до 2 знаков после запятой
-    if (typeof data[key] === 'number') {
-      return parseFloat(data[key].toFixed(2));
+    if (typeof value === 'number') {
+      return parseFloat(value.toFixed(2));
     }
-    return data[key];
+    return value;
   });
   
   if (missingFields.length > 0) {
