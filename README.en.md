@@ -73,12 +73,10 @@ Example template:
 ### Configure Komodo
 
 In Komodo, add Custom Alerter with URL:
-`http://<alerter-ip>:3000/alert?token=<TELEGRAM_TOKEN>&chat_id=<TELEGRAM_CHAT_ID>`
+`http://<alerter-ip>:3000/alert?token=<TELEGRAM_TOKEN>&chat_id=<TELEGRAM_CHAT_ID>&message_thread_id=<TELEGRAM_THREADS_ID>`
 
 Or use Komodo variables:
-`http://<alerter-ip>:3000/alert?token=[[TELEGRAM_TOKEN]]&chat_id=[[TELEGRAM_CHAT_ID]]`
-
-**Recommended:** Store credentials in [Komodo Secrets & Variables](https://komo.do/docs/variables).
+`http://<alerter-ip>:3000/alert?token=[[TELEGRAM_TOKEN]]&chat_id=[[TELEGRAM_CHAT_ID]]&message_thread_id=[[TELEGRAM_THREADS_ID]]`
 
 ## Telegram Credentials
 

@@ -73,12 +73,10 @@ services:
 ### Настройка Komodo
 
 В Komodo добавьте Custom Alerter с URL:
-`http://<alerter-ip>:3000/alert?token=<TELEGRAM_TOKEN>&chat_id=<TELEGRAM_CHAT_ID>`
+`http://<alerter-ip>:3000/alert?token=<TELEGRAM_TOKEN>&chat_id=<TELEGRAM_CHAT_ID>&message_thread_id=<TELEGRAM_THREADS_ID>`
 
 Или используйте переменные Komodo:
-`http://<alerter-ip>:3000/alert?token=[[TELEGRAM_TOKEN]]&chat_id=[[TELEGRAM_CHAT_ID]]`
-
-**Рекомендация:** Храните учетные данные в [Komodo Secrets & Variables](https://komo.do/docs/variables).
+`http://<alerter-ip>:3000/alert?token=[[TELEGRAM_TOKEN]]&chat_id=[[TELEGRAM_CHAT_ID]]&message_thread_id=[[TELEGRAM_THREADS_ID]]`
 
 ## Получение Telegram-данных
 
